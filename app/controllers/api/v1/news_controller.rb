@@ -25,7 +25,8 @@ module Api
 
       private
       def get_news_by(emotion_type:)
-        news = News.where(emotion_type: emotion_type).order("main_emotion_value DESC")
+        # news = News.where(emotion_type: emotion_type).order("main_emotion_value DESC")
+        news = News.select("title, link, picture, le, hao, nu, ai, ju, e, jing, emotion_type, main_emotion_value").where(emotion_type: emotion_type).order("main_emotion_value DESC")
       end
     end
   end
